@@ -1,0 +1,33 @@
+# ===================================================================
+# Traffic Signal Violation Detector - Python dependencies
+# ===================================================================
+# IMPORTANT: Do NOT install this file directly on the first run.
+# PyTorch must be installed FIRST with the CUDA index URL, otherwise
+# pip will quietly install the CPU-only build and your GPU goes unused.
+#
+# Correct order:
+#   1. pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+#   2. pip install -r requirements.txt
+#   3. python -m ipykernel install --user --name=traffic-detector
+#
+# Step 2 will see torch is already installed and leave it alone.
+# Step 3 registers this environment as a Jupyter kernel, which you
+# then pick from the notebook's Kernel menu.
+# ===================================================================
+
+# --- Computer vision ---
+opencv-python==4.10.0.84      # video reading, drawing, cropping, colour conversion
+
+# --- Deep learning models ---
+ultralytics==8.3.40           # YOLO vehicle + number plate detection (runs on PyTorch)
+easyocr==1.7.2                # reads the text off the number plate (runs on PyTorch)
+
+# --- Data handling and output ---
+numpy==1.26.4                 # array maths, used everywhere under the hood
+pandas==2.2.3                 # builds the violations table
+openpyxl==3.1.5               # writes the .xlsx file with clickable links
+
+# --- Notebook ---
+jupyterlab==4.3.4             # the notebook interface itself
+ipykernel==6.29.5             # registers this venv as a selectable kernel
+matplotlib==3.9.3             # displays frames inline (cv2.imshow freezes Jupyter)
